@@ -1,0 +1,6 @@
+requests
+flask
+flask-cors
+apscheduler
+flasgger
+werkzeug

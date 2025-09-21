@@ -688,4 +688,6 @@ if __name__ == '__main__':
     print("  GET /api/files - 列出所有文件")
     print("  GET /api/health - 健康检查")
     
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    # 获取环境变量中的端口，如果不存在则使用默认端口5000
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
