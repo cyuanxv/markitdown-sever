@@ -29,6 +29,10 @@ RUN pip --no-cache-dir install \
     /app/packages/markitdown[all] \
     /app/packages/markitdown-sample-plugin
 
+# 创建必要的目录并设置权限
+RUN mkdir -p /app/uploads /app/public && \
+    chmod 777 /app/uploads /app/public
+
 # Default USERID and GROUPID
 ARG USERID=nobody
 ARG GROUPID=nogroup

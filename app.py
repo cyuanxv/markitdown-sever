@@ -76,8 +76,9 @@ swagger_template = {
 swagger = Swagger(app, config=swagger_config, template=swagger_template)
 
 # 配置
-UPLOAD_FOLDER = 'uploads'
-DOWNLOAD_FOLDER = 'public'
+# 使用绝对路径以确保在Docker容器中正确访问
+UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'uploads')
+DOWNLOAD_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'public')
 MAX_FILE_SIZE = 50 * 1024 * 1024  # 50MB
 CLEANUP_INTERVAL_MINUTES = 5  # 每5分钟检查一次过期文件
 FILE_EXPIRY_MINUTES = 30  # 文件30分钟后过期
